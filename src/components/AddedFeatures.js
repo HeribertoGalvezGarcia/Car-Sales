@@ -1,9 +1,10 @@
 import React from 'react';
-import {connect} from "react-redux";
+import {useSelector} from "react-redux";
 
 import AddedFeature from './AddedFeature';
 
-function AddedFeatures({features}) {
+function AddedFeatures() {
+  const features = useSelector(({car: {features}}) => features);
   return (
     <div className="content">
       <h6>Added features:</h6>
@@ -20,4 +21,4 @@ function AddedFeatures({features}) {
   );
 }
 
-export default connect(({car: {features}}) => ({features}))(AddedFeatures);
+export default AddedFeatures;

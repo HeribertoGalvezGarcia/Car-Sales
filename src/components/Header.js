@@ -1,7 +1,8 @@
 import React from 'react';
-import {connect} from "react-redux";
+import {useSelector} from "react-redux";
 
-function Header({image, name, price}) {
+function Header() {
+  const [image, name, price] = useSelector(({car: {image, name, price}}) => [image, name, price]);
   return (
     <>
       <figure className="image is-128x128">
@@ -13,4 +14,4 @@ function Header({image, name, price}) {
   );
 }
 
-export default connect(({car: {image, name, price}}) => ({image, name, price}))(Header);
+export default Header;

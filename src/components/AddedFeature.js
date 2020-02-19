@@ -1,14 +1,15 @@
 import React from 'react';
-import {connect} from "react-redux";
+import {useDispatch} from "react-redux";
 import {removeFeature} from "../actions";
 
-function AddedFeature({feature, removeFeature: remove}) {
+function AddedFeature({feature}) {
+  const dispatch = useDispatch();
   return (
     <li>
-      <button onClick={e => {e.preventDefault(); remove(feature);}} className="button">X</button>
+      <button onClick={e => {e.preventDefault(); dispatch(removeFeature(feature));}} className="button">X</button>
       {feature.name}
     </li>
   );
 }
 
-export default connect(null, {removeFeature})(AddedFeature);
+export default AddedFeature;

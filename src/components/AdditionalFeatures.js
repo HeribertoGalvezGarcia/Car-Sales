@@ -1,8 +1,9 @@
 import React from 'react';
-import {connect} from "react-redux";
+import {useSelector} from "react-redux";
 import AdditionalFeature from './AdditionalFeature';
 
-function AdditionalFeatures({additionalFeatures}) {
+function AdditionalFeatures() {
+  const additionalFeatures = useSelector(({additionalFeatures}) => additionalFeatures);
   return (
     <div className="content">
       <h4>Additional Features</h4>
@@ -19,4 +20,4 @@ function AdditionalFeatures({additionalFeatures}) {
   );
 }
 
-export default connect(({additionalFeatures}) => ({additionalFeatures}))(AdditionalFeatures);
+export default AdditionalFeatures;

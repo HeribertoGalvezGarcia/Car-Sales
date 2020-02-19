@@ -1,7 +1,8 @@
 import React from 'react';
-import {connect} from "react-redux"
+import {useSelector} from "react-redux"
 
-function Total({price, additionalPrice}) {
+function Total() {
+  const [price, additionalPrice] = useSelector(({car: {price}, additionalPrice}) => [price, additionalPrice]);
   return (
     <div className="content">
       <h4>Total Amount: ${price + additionalPrice}</h4>
@@ -9,4 +10,4 @@ function Total({price, additionalPrice}) {
   );
 }
 
-export default connect(({car: {price}, additionalPrice}) => ({price, additionalPrice}))(Total);
+export default Total;
