@@ -1,13 +1,15 @@
 import React from 'react';
+import {useSelector} from "react-redux";
 import AdditionalFeature from './AdditionalFeature';
 
-const AdditionalFeatures = props => {
+function AdditionalFeatures() {
+  const additionalFeatures = useSelector(({additionalFeatures}) => additionalFeatures);
   return (
     <div className="content">
       <h4>Additional Features</h4>
-      {props.additionalFeatures.length ? (
+      {additionalFeatures.length ? (
         <ol type="1">
-          {props.additionalFeatures.map(item => (
+          {additionalFeatures.map(item => (
             <AdditionalFeature key={item.id} feature={item} />
           ))}
         </ol>
@@ -16,6 +18,6 @@ const AdditionalFeatures = props => {
       )}
     </div>
   );
-};
+}
 
 export default AdditionalFeatures;
